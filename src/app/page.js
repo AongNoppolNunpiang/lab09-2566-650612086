@@ -8,7 +8,6 @@ import { nanoid } from "nanoid";
 import { useState } from "react";
 
 export default function Home() {
-  //tasks = array of {id: string, title: string, completed: boolean}
   const [tasks, setTasks] = useState([]);
   const [count1, setCount1] = useState(0);
   const [count2, setCount2] = useState(0);
@@ -33,6 +32,7 @@ export default function Home() {
 
   const toggleDoneTask = (taskId) => {
     const newTasks = structuredClone(tasks);
+
     const task = newTasks.find((x) => x.id === taskId);
     const isTaskCompleted = task.completed;
     task.completed = !task.completed;
@@ -46,20 +46,13 @@ export default function Home() {
   };
 
   return (
-    // Main container
     <div className="container mx-auto">
-      {/* header section */}
       <Header />
-      {/* tasks container */}
       <div style={{ maxWidth: "400px" }} className="mx-auto">
-        {/* Task summary */}
         <p className="text-center text-secondary fst-italic">
           All ({count1}) Done ({count2})
         </p>
-        {/* task input */}
         <TaskInput addTaskFunc={addTask} />
-
-        {/* tasks mapping*/}
         {tasks.map((task) => (
           <Task
             id={task.id}
@@ -71,9 +64,7 @@ export default function Home() {
           />
         ))}
       </div>
-
-      {/* //footer section */}
-      <Footer year="2023" fullName="Kong Kanjai" studentId="650612077" />
+      <Footer year="2023" fullName="Noppol Nunpiang" studentId="650612086" />
     </div>
   );
 }
