@@ -8,7 +8,6 @@ export const Task = ({
   const deleteBtnOnClick = () => {
     deleteTaskFunc(id);
   };
-
   const doneBtnOnClick = () => {
     toggleDoneTaskFunc(id);
   };
